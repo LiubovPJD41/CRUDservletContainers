@@ -1,10 +1,10 @@
 package Polyaeva;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import Polyaeva.controller.PostController;
 import Polyaeva.repository.PostRepository;
 import Polyaeva.service.PostService;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JavaConfig {

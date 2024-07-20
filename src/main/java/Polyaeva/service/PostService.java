@@ -1,11 +1,13 @@
 package Polyaeva.service;
 
+import org.springframework.stereotype.Service;
+import Polyaeva.exception.NotFoundException;
 import Polyaeva.model.Post;
 import Polyaeva.repository.PostRepository;
-import Polyaeva.exception.NotFoundException;
 
 import java.util.List;
 
+@Service
 public class PostService {
     private final PostRepository repository;
 

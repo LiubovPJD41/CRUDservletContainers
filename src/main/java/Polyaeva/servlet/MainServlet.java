@@ -1,24 +1,23 @@
 package Polyaeva.servlet;
 
-import Polyaeva.JavaConfig;
-import Polyaeva.controller.PostController;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import Polyaeva.controller.PostController;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
+    private PostController controller;
     private final static String GET = "GET";
     private final static String POST = "POST";
     private final static String DELETE = "DELETE";
     private final static String POSTS_ROOT = "/api/posts";
     private final static String POSTS_POST = "/api/posts/\\d+";
-    private PostController controller;
 
     @Override
     public void init() {
-        final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        final var context = new AnnotationConfigApplicationContext("Polyaeva");
         controller = context.getBean(PostController.class);
     }
 
@@ -28,12 +27,10 @@ public class MainServlet extends HttpServlet {
         try {
             final var path = req.getRequestURI();
             final var method = req.getMethod();
-            System.out.println(path);
             // primitive routing
             if (method.equals(GET) && path.equals(POSTS_POST)) {
                 controller.all(resp);
                 return;
-
             }
             if (method.equals(GET) && path.matches(POSTS_POST)) {
                 // easy way

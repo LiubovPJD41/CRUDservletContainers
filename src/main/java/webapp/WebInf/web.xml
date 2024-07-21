@@ -7,10 +7,9 @@
     <!-- определение servlet'а -->
     <servlet>
         <servlet-name>main</servlet-name>
-        <servlet-class>Polyaeva.servlet.MainServlet</servlet-class>
+        <servlet-class>ru.netology.servlet.MainServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
     <!-- mapping - привязка к определённому URL-->
     <servlet-mapping>
         <servlet-name>main</servlet-name>
